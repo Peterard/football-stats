@@ -1,10 +1,10 @@
 console.log("started")
 var letterbox;
         if(window.outerHeight >  window.outerWidth){
-          $("#background-div").css("width","80vw");
+          $("#background-div").css("width","95vw");
           $("#background-div").css("height","53vw");
-          $("#centering").css("margin-left"," 8vw");
-          $("#centering").css("margin-right"," 8vw");    
+          $("#centering").css("margin-left"," 2vw");
+          $("#centering").css("margin-right"," 2vw");    
           $("#canvas").outerHeight($("#background-div").outerHeight());
           $("#canvas").outerWidth($("#background-div").outerWidth());
           letterbox = false;
