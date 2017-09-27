@@ -1,2 +1,1 @@
-# football-stats
-Football statistics visualisation test
+# statistics-for-fun
