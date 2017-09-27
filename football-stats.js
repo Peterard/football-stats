@@ -5,16 +5,16 @@ var letterbox;
           $("#background-div").css("height","53vw");
           $("#centering").css("margin-left"," 8vw");
           $("#centering").css("margin-right"," 8vw");    
-          $("#canvas").css("width","80vw");
-          $("#canavs").css("height","53vw");
+          $("#canvas").outerHeight($("#background-div").outerHeight());
+          $("#canvas").outerWidth($("#background-div").outerWidth());
           letterbox = false;
         }else{
           $("#background-div").css("width","121vh");
           $("#background-div").css("height","80vh");
           $("#centering").css("margin-left","calc((100% - 121vh)/2)");
           $("#centering").css("margin-right","calc((100% - 121vh)/2)");
-          $("#canvas").css("width","80vw");
-          $("#canavs").css("height","53vw");
+          $("#canvas").outerHeight($("#background-div").outerHeight());
+          $("#canvas").outerWidth($("#background-div").outerWidth());
           letterbox = true;
         }
         window.onresize = function(event) {
