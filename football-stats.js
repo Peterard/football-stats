@@ -19,16 +19,20 @@ var letterbox;
         }
         window.onresize = function(event) {
           if(letterbox && window.outerHeight >  window.outerWidth){
-            $("#background-div").css("width","80vw");
-            $("#background-div").css("height","53vw");
-            $("#centering").css("margin-left"," 8vw");
-            $("#centering").css("margin-right"," 8vw");
+                  $("#background-div").css("width","95vw");
+                  $("#background-div").css("height","63vw");
+                  $("#centering").css("margin-left"," 2vw");
+                  $("#centering").css("margin-right"," 2vw");    
+                  $("#canvas").outerHeight($("#background-div").outerHeight());
+                  $("#canvas").outerWidth($("#background-div").outerWidth());
             letterbox = false;
           }else if(!letterbox && window.outerHeight <=  window.outerWidth){
-            $("#background-div").css("width","121vh");
-            $("#background-div").css("height","80vh");
-            $("#centering").css("margin-left","calc((100% - 121vh)/2)");
-            $("#centering").css("margin-right","calc((100% - 121vh)/2)");
+                  $("#background-div").css("width","121vh");
+                  $("#background-div").css("height","80vh");
+                  $("#centering").css("margin-left","calc((100% - 121vh)/2)");
+                  $("#centering").css("margin-right","calc((100% - 121vh)/2)");
+                  $("#canvas").outerHeight($("#background-div").outerHeight());
+                  $("#canvas").outerWidth($("#background-div").outerWidth());
             letterbox = true;
           }
         };
