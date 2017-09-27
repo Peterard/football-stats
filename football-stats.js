@@ -1,5 +1,3 @@
-$( document ).ready(function(){
-
   var letterbox;
     if($(window).outerHeight >  $(window).outerWidth){
       $("#background-div").css("width","80vw");
@@ -249,5 +247,3 @@ $( document ).ready(function(){
       }
       window.myScatter.update();
     })
-
-  });
