@@ -136,34 +136,34 @@ $( document ).ready(function(){
     };
 
 
-var first = true;
-
-    var customLinePlugin = {
-      afterDraw: function(chartInstance) {
-        var canvas = chartInstance.chart;
-        var ctx = canvas.ctx;
-        var index;
-        var line;
-        var style;
-console.log(first);
-        if(first){
-              ctx.beginPath();
-              ctx.moveTo(0, 200);
-              ctx.lineTo(150, 0);
-              ctx.strokeStyle = "rgba(169,169,169, .6)";
-              ctx.stroke();
-              ctx.beginPath();
-              ctx.moveTo(150, 0);
-              ctx.lineTo(400, 400);
-              ctx.strokeStyle = "rgba(169,169,169, .6)";
-              ctx.stroke();
-              first = false;
-            }
-          return;
-        }
-    };
-    Chart.pluginService.register(customLinePlugin);
-
+// var first = true;
+//
+//     var customLinePlugin = {
+//       afterDraw: function(chartInstance) {
+//         var canvas = chartInstance.chart;
+//         var ctx = canvas.ctx;
+//         var index;
+//         var line;
+//         var style;
+// console.log(first);
+//         if(first){
+//               ctx.beginPath();
+//               ctx.moveTo(0, 200);
+//               ctx.lineTo(150, 0);
+//               ctx.strokeStyle = "rgba(169,169,169, .6)";
+//               ctx.stroke();
+//               ctx.beginPath();
+//               ctx.moveTo(150, 0);
+//               ctx.lineTo(400, 400);
+//               ctx.strokeStyle = "rgba(169,169,169, .6)";
+//               ctx.stroke();
+//               first = false;
+//             }
+//           return;
+//         }
+//     };
+//     Chart.pluginService.register(customLinePlugin);
+//
 
 
 
