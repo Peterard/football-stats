@@ -38,6 +38,7 @@ var letterbox;
         var scatterChartData = {
             datasets: [{
                 pointRadius:9,
+                hitRadius:20,
                 pointHoverRadius: 15,
                 label: "My First dataset",
                 borderColor: window.chartColors.red,
@@ -80,6 +81,7 @@ var letterbox;
                 }]
             }, {
                 pointRadius:9,
+                hitRadius:20,
                 pointHoverRadius: 15,
                 label: "My Second dataset",
                 borderColor: window.chartColors.blue,
