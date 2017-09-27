@@ -1,4 +1,4 @@
-
+console.log("started")
 var letterbox;
         if(window.outerHeight >  window.outerWidth){
           $("#background-div").css("width","80vw");
