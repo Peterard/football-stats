@@ -157,8 +157,8 @@ var letterbox;
                                 console.log(tooltipItem);
                                   console.log(data);
                                   //data[tooltipItem.datasetIndex]
-                                  return "Player: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player +
-                                  "\n\r Min: " +data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].min;
+                                  return ["Player: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player,
+                                  "Min: " +data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].min];
                                 }
                               }
                             }
