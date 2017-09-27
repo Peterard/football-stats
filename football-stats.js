@@ -1,4 +1,5 @@
-  var letterbox;
+  alert();
+    var letterbox;
     if($(window).outerHeight >  $(window).outerWidth){
       $("#background-div").css("width","80vw");
       $("#background-div").css("height","53vw");
