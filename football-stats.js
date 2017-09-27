@@ -2,7 +2,7 @@ console.log("started")
 var letterbox;
         if(window.outerHeight >  window.outerWidth){
           $("#background-div").css("width","95vw");
-          $("#background-div").css("height","53vw");
+          $("#background-div").css("height","63vw");
           $("#centering").css("margin-left"," 2vw");
           $("#centering").css("margin-right"," 2vw");    
           $("#canvas").outerHeight($("#background-div").outerHeight());
