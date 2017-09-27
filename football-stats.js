@@ -32,10 +32,10 @@
     var playerArray = ["Douglas Vieira","Gakuji Ota","Carlos Martínez","Akira Ibayashi ","Alan Pinheiro","Koki Anzai","Henrik Larsson", "Shunsuke Nakamura", "Artur Boruc", "Bobo Balde", "Georgios Samaras"];
     var oppositionArray = ["Ryoya Ogawa","Go Hatano","Takuo Okubo","Masato Morishige","Yohei Kajiyama","Peter Utaka","Sasa Papac", "Kirk Broadfoot", "Kenny Miller", "Lee McCulloch", "Kris Boyd"];
 
-    function clearCanvas(){
-      var ctx = document.getElementById("canvas").getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    // function clearCanvas(){
+    //   var ctx = document.getElementById("canvas").getContext("2d");
+    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // }
 
     var color = Chart.helpers.color;
     var scatterChartData = {
@@ -160,11 +160,6 @@
 //     };
 //     Chart.pluginService.register(customLinePlugin);
 //
-
-
-
-
-
     window.onload = function() {
         var ctx = document.getElementById("canvas").getContext("2d");
 
