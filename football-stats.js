@@ -33,6 +33,8 @@ var letterbox;
         var color = Chart.helpers.color;
         var scatterChartData = {
             datasets: [{
+                pointRadius:9,
+                pointHoverRadius: 15,
                 label: "My First dataset",
                 borderColor: window.chartColors.red,
                 backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
@@ -73,6 +75,8 @@ var letterbox;
                     min:Math.floor(90*Math.random()),
                 }]
             }, {
+                pointRadius:9,
+                pointHoverRadius: 15,
                 label: "My Second dataset",
                 borderColor: window.chartColors.blue,
                 backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
