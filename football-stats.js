@@ -7,14 +7,12 @@ $( document ).ready(function(){
       $("#centering").css("margin-left"," 8vw");
       $("#centering").css("margin-right"," 8vw");
       letterbox = false;
-      console.log("PHONE")
     }else{
       $("#background-div").css("width","121vh");
       $("#background-div").css("height","80vh");
       $("#centering").css("margin-left","calc((100% - 121vh)/2)");
       $("#centering").css("margin-right","calc((100% - 121vh)/2)");
       letterbox = true;
-      console.log("COMPUTER")
     }
 
     window.onresize = function(event) {
@@ -215,7 +213,6 @@ $( document ).ready(function(){
 
     };
     document.getElementById('randomizeData').addEventListener('click', function() {
-      clearCanvas();
             scatterChartData.datasets[0].data = scatterChartData.datasets[0].data.map(function() {
                 return {
                     x: randomScalingFactor() + 100,
