@@ -18,7 +18,7 @@ function createHeatMap(homeDataArray, awayDataArray){
 
   var heatMapData = [];
   for(var arrayCounter = 0; arrayCounter < dataArray.length; arrayCounter++){
-    heatMapData.push([dataArray[arrayCounter]["x"], (1-dataArray[arrayCounter]["y"]), 0.5]);
+    heatMapData.push([dataArray[arrayCounter]["x"], (1-dataArray[arrayCounter]["y"]), 0.7]);
   }
 
   heatMapData.forEach(function(part, index, heatMapDataArray) {

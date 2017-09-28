@@ -29,13 +29,8 @@ function createAwayData(){
     return awayDataArray;
 }
 
-var homeData = []//createHomeData();
-var awayData = []//createAwayData();
-
-homeData[0] = {x:0,y:0,player:"test",min:0}
-homeData[1] = {x:1,y:0,player:"test",min:0}
-homeData[2] = {x:0,y:1,player:"test",min:0}
-homeData[3] = {x:1,y:1,player:"test",min:0}
+var homeData = createHomeData();
+var awayData = createAwayData();
 
 //createDetailMap(createHomeData(), createAwayData());
 
