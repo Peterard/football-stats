@@ -123,5 +123,26 @@ $("#randomizeData").click(function() {
     createDetailMap(homeData, awayData);
 
   }
-
 });
+
+
+window.onresize = function(event) {
+
+  var newHomeData = [];
+  var newAwayData = [];
+
+  if(awayTeamShowing){
+      newAwayData = awayData;
+  }
+
+  if(homeTeamShowing){
+      newHomeData = homeData;
+  }
+
+  if(currentMapType == "heat"){
+    createHeatMap(newHomeData, newAwayData);
+  }else if(currentMapType == "detail"){
+    createDetailMap(newHomeData, newAwayData);
+  }
+
+}

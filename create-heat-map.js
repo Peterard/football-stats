@@ -28,7 +28,7 @@ function createHeatMap(homeDataArray, awayDataArray){
 
   var heat = simpleheat('heatmap').data(heatMapData).max(1);
 
-  heat.radius(40, 90);
+  heat.radius(canvas.width*0.054, canvas.width*0.12);
 
   heat.draw();
 }
