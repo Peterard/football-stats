@@ -8,8 +8,6 @@ function createDetailMap(homeDataArray, awayDataArray){
   //   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // }
 
-  Chart.defaults.global.animationSteps = 5000;
-
   $("#background-div").empty();
 
   $("#background-div").append('<canvas id="detail-map"></canvas>');
