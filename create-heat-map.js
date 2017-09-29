@@ -1,7 +1,7 @@
-function createHeatMap(homeDataArray, awayDataArray){
+function createHeatMap(homeDataInput, awayDataInput){
 
-  console.log(homeDataArray);
-  console.log(awayDataArray);
+  var homeDataArray = homeDataInput;
+  var awayDataArray = awayDataInput;
 
   dataArray = homeDataArray.concat(awayDataArray);
 
@@ -28,7 +28,10 @@ function createHeatMap(homeDataArray, awayDataArray){
 
   var heat = simpleheat('heatmap').data(heatMapData).max(1);
 
-  heat.radius(canvas.width*0.054, canvas.width*0.12);
+  var heatMapRadius = 0.05;
+  var heatMapBlurRadius = 0.06;
+
+  heat.radius(Math.sqrt(canvas.width*canvas.width + canvas.height*canvas.height)*heatMapRadius, Math.sqrt(canvas.width*canvas.width + canvas.height*canvas.height)*heatMapBlurRadius);
 
   heat.draw();
 }

@@ -1,52 +1,27 @@
-
-function createHomeData(){
-  var homeDataArray = [];
-
-  var playerArray = ["Douglas Vieira","Gakuji Ota","Carlos Martínez","Akira Ibayashi ","Alan Pinheiro","Koki Anzai","Henrik Larsson", "Shunsuke Nakamura", "Artur Boruc", "Bobo Balde", "Georgios Samaras"];
-
-  for(var arrayCounter = 0; arrayCounter < 20; arrayCounter++){
-    homeDataArray[arrayCounter] = {x: Math.random(),
-                                y: Math.random(),
-                                player:playerArray[Math.floor(11*Math.random())],
-                                min:Math.floor(90*Math.random())};
-
-  }
-
-  return homeDataArray;
-}
-
-function createAwayData(){
-  var awayDataArray = [];
-
-  var oppositionArray = ["Ryoya Ogawa","Go Hatano","Takuo Okubo","Masato Morishige","Yohei Kajiyama","Peter Utaka","Sasa Papac", "Kirk Broadfoot", "Kenny Miller", "Lee McCulloch", "Kris Boyd"];
-
-  for(var arrayCounter = 0; arrayCounter < 20; arrayCounter++){
-    awayDataArray[arrayCounter] = {x: Math.random(),
-                                y: Math.random(),
-                                player:oppositionArray[Math.floor(11*Math.random())],
-                                min:Math.floor(90*Math.random())};
-  }
-    return awayDataArray;
-}
-
 var homeData = createHomeData();
 var awayData = createAwayData();
 
-//createDetailMap(createHomeData(), createAwayData());
+var tHomeData = transposeData(homeData);
+var tAwayData = transposeData(awayData);
 
-createDetailMap(homeData, awayData);
+var homePassingData = createHomePassingData();
+var awayPassingData = createAwayPassingData();
 
-//createHeatMap(homeData, awayData);
+var tHomePassingData = transposePassingData(homePassingData);
+var tAwayPassingData = transposePassingData(awayPassingData);
+
+createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+
 
 var currentMapType = "detail";
 
 $("#detail-map-button").click(function(){
-  createDetailMap(homeData, awayData);
+  createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
   currentMapType = "detail"
 })
 
 $("#heatmap-button").click(function(){
-  createHeatMap(homeData, awayData);
+  createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
   currentMapType = "heat";
 })
 
@@ -57,9 +32,18 @@ $("#home-team").click(function(){
 
   var newHomeData = [];
   var newAwayData = [];
+  var tNewAwayData = [];
+  var tNewHomeData = [];
+  var newHomePassingData = [];
+  var newAwayPassingData = [];
+  var tNewHomePassingData = [];
+  var tNewAwayPassingData = [];
 
   if(!homeTeamShowing){
       newHomeData = homeData;
+      tNewHomeData = tHomeData;
+      newHomePassingData = homePassingData;
+      tNewHomePassingData = tHomePassingData;
       homeTeamShowing = true;
   }else{
       homeTeamShowing = false;
@@ -67,16 +51,17 @@ $("#home-team").click(function(){
 
   if(awayTeamShowing){
       newAwayData = awayData;
+      tNewAwayData = tAwayData;
+      newAwayPassingData = awayPassingData;
+      tNewAwayPassingData = tAwayPassingData;
   }
 
   if(currentMapType == "heat"){
-
-    createHeatMap(newHomeData, newAwayData);
-
+    createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
   }else if(currentMapType == "detail"){
-
-    createDetailMap(newHomeData, newAwayData);
-
+    createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, newHomePassingData, newAwayPassingData, tNewHomePassingData, tNewAwayPassingData);
   }
 })
 
@@ -84,9 +69,18 @@ $("#away-team").click(function(){
 
     var newHomeData = [];
     var newAwayData = [];
+    var tNewAwayData = [];
+    var tNewHomeData = [];
+    var newHomePassingData = [];
+    var newAwayPassingData = [];
+    var tNewHomePassingData = [];
+    var tNewAwayPassingData = [];
 
     if(!awayTeamShowing){
         newAwayData = awayData;
+        tNewAwayData = tAwayData;
+        newAwayPassingData = awayPassingData;
+        tNewAwayPassingData = tAwayPassingData;
         awayTeamShowing = true;
     }else{
         awayTeamShowing = false;
@@ -94,16 +88,17 @@ $("#away-team").click(function(){
 
     if(homeTeamShowing){
         newHomeData = homeData;
+        tNewHomeData = tHomeData;
+        newHomePassingData = homePassingData;
+        tNewHomePassingData = tHomePassingData;
     }
 
     if(currentMapType == "heat"){
-
-      createHeatMap(newHomeData, newAwayData);
-
+      createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
     }else if(currentMapType == "detail"){
-
-      createDetailMap(newHomeData, newAwayData);
-
+      createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+    }else if(currentMapType == "passing"){
+      createMap(createPassingMap, newHomePassingData, newAwayPassingData, tNewHomePassingData, tNewAwayPassingData);
     }
 })
 
@@ -114,35 +109,64 @@ $("#randomizeData").click(function() {
   homeData = createHomeData();
   awayData = createAwayData();
 
+  tHomeData = transposeData(homeData);
+  tAwayData = transposeData(awayData);
+
+  homePassingData = createHomePassingData();
+  awayPassingData = createAwayPassingData();
+
+  tHomePassingData = transposePassingData(homePassingData);
+  tAwayPassingData = transposePassingData(awayPassingData);
+
   if(currentMapType == "heat"){
-
-    createHeatMap(homeData, awayData);
-
+    createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
   }else if(currentMapType == "detail"){
-
-    createDetailMap(homeData, awayData);
-
+    createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
   }
+  homeTeamShowing = true;
+  awayTeamShowing = true;
 });
+
+$("#passing-map-button").click(function() {
+  createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
+  currentMapType = "passing"
+})
 
 
 window.onresize = function(event) {
 
   var newHomeData = [];
   var newAwayData = [];
+  var tNewAwayData = [];
+  var tNewHomeData = [];
+
+  var newHomePassingData = [];
+  var newAwayPassingData = [];
+  var tNewAwayPassingData = [];
+  var tNewHomePassingData = [];
 
   if(awayTeamShowing){
       newAwayData = awayData;
+      tNewAwayData = tAwayData;
+      newAwayPassingData = awayPassingData;
+      tNewAwayPassingData = tAwayPassingData;
   }
 
   if(homeTeamShowing){
       newHomeData = homeData;
+      tNewHomeData = tHomeData;
+      newHomePassingData = homePassingData;
+      tNewHomePassingData = tHomePassingData;
   }
 
   if(currentMapType == "heat"){
-    createHeatMap(newHomeData, newAwayData);
+    createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
   }else if(currentMapType == "detail"){
-    createDetailMap(newHomeData, newAwayData);
+    createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
   }
 
 }
