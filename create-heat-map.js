@@ -1,9 +1,9 @@
 function createHeatMap(homeDataInput, awayDataInput){
 
-  var homeDataArrayForHM = homeDataInput;
-  var awayDataArrayForHM = awayDataInput;
+  var homeDataArray = homeDataInput;
+  var awayDataArray = awayDataInput;
 
-  dataArray = homeDataArrayForHM.concat(awayDataArrayForHM);
+  dataArray = homeDataArray.concat(awayDataArray);
 
   $("#background-div").empty();
 
@@ -12,24 +12,6 @@ function createHeatMap(homeDataInput, awayDataInput){
   var canvas = document.getElementById("heatmap");
 
   resizeCanvas(canvas);
-
-  // if(isPortrait()){
-  //   for(var arrayCounter = 0; arrayCounter < homeDataArrayForHM.length; arrayCounter++){
-  //     var originalX = homeDataArrayForHM[arrayCounter]["x"];
-  //     var originalY = homeDataArrayForHM[arrayCounter]["y"];
-  //
-  //     homeDataArrayForHM[arrayCounter]["x"] = originalY;
-  //     homeDataArrayForHM[arrayCounter]["y"] = originalX;
-  //   }
-  //
-  //   for(var arrayCounter = 0; arrayCounter < awayDataArrayForHM.length; arrayCounter++){
-  //     var originalX = awayDataArrayForHM[arrayCounter]["x"];
-  //     var originalY = awayDataArrayForHM[arrayCounter]["y"];
-  //
-  //     awayDataArrayForHM[arrayCounter]["x"] = originalY;
-  //     awayDataArrayForHM[arrayCounter]["y"] = originalX;
-  //   }
-  // }
 
   canvas.width  = $("#background-div").outerWidth();
   canvas.height = $("#background-div").outerHeight();
@@ -46,7 +28,10 @@ function createHeatMap(homeDataInput, awayDataInput){
 
   var heat = simpleheat('heatmap').data(heatMapData).max(1);
 
-  heat.radius(canvas.width*0.054, canvas.width*0.12);
+  var heatMapRadius = 0.05;
+  var heatMapBlurRadius = 0.06;
+
+  heat.radius(Math.sqrt(canvas.width*canvas.width + canvas.height*canvas.height)*heatMapRadius, Math.sqrt(canvas.width*canvas.width + canvas.height*canvas.height)*heatMapBlurRadius);
 
   heat.draw();
 }

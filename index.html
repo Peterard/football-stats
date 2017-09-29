@@ -19,7 +19,25 @@
         background-position: center;
     }
 
-    #centering{
+    #background-div{
+    }
+
+    #centering button{
+      vertical-align: top;
+      border-radius: 5px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border-color:#80d4ff;
+      border-style:solid;
+      border-width:3px;
+    }
+
+    .map-buttons{
+      background-color:#ffee00;
+    }
+
+    .data-buttons{
+      background-color:#f7c6b2;
     }
     </style>
 </head>
@@ -28,15 +46,17 @@
     <div id="centering">
       <div id="background-div">
       </div>
-      <button id="randomizeData">Randomize Data</button>
+      <button class="data-buttons" id="randomizeData">Randomize Data</button>
       <button id="home-team">Home Team</button>
       <button id="away-team">Away Team</button>
-      <button id="detail-map-button">Detail Map</button>
-      <button id="heatmap-button">Heat Map</button>
+      <button class="map-buttons" id="detail-map-button">Detail Map</button>
+      <button class="map-buttons" id="heatmap-button">Heat Map</button>
+      <button class="map-buttons" id="passing-map-button">Possions Chart</button>
     </div>
     <script src="canvas-sizing.js"></script>
     <script src="create-heat-map.js"></script>
     <script src="create-detail-map.js"></script>
+    <script src="create-passing-map.js"></script>
     <script src="data-handler.js"></script>
     <script src="football-stats.js"></script>
 </body>

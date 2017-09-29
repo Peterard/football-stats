@@ -4,29 +4,24 @@ var awayData = createAwayData();
 var tHomeData = transposeData(homeData);
 var tAwayData = transposeData(awayData);
 
-if(isPortrait()){
-  createDetailMap(tHomeData, tAwayData);
-}else{
-  createDetailMap(homeData, awayData);
-}
+var homePassingData = createHomePassingData();
+var awayPassingData = createAwayPassingData();
+
+var tHomePassingData = transposePassingData(homePassingData);
+var tAwayPassingData = transposePassingData(awayPassingData);
+
+createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+
 
 var currentMapType = "detail";
 
 $("#detail-map-button").click(function(){
-  if(isPortrait()){
-    createDetailMap(tHomeData, tAwayData);
-  }else{
-    createDetailMap(homeData, awayData);
-  }
+  createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
   currentMapType = "detail"
 })
 
 $("#heatmap-button").click(function(){
-  if(isPortrait()){
-    createHeatMap(tHomeData, tAwayData);
-  }else{
-    createHeatMap(homeData, awayData);
-  };
+  createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
   currentMapType = "heat";
 })
 
@@ -39,10 +34,16 @@ $("#home-team").click(function(){
   var newAwayData = [];
   var tNewAwayData = [];
   var tNewHomeData = [];
+  var newHomePassingData = [];
+  var newAwayPassingData = [];
+  var tNewHomePassingData = [];
+  var tNewAwayPassingData = [];
 
   if(!homeTeamShowing){
       newHomeData = homeData;
       tNewHomeData = tHomeData;
+      newHomePassingData = homePassingData;
+      tNewHomePassingData = tHomePassingData;
       homeTeamShowing = true;
   }else{
       homeTeamShowing = false;
@@ -51,24 +52,16 @@ $("#home-team").click(function(){
   if(awayTeamShowing){
       newAwayData = awayData;
       tNewAwayData = tAwayData;
+      newAwayPassingData = awayPassingData;
+      tNewAwayPassingData = tAwayPassingData;
   }
 
   if(currentMapType == "heat"){
-
-    if(isPortrait()){
-        createHeatMap(tNewHomeData, tNewAwayData);
-    }else{
-        createHeatMap(newHomeData, newAwayData);
-    };
-
+    createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
   }else if(currentMapType == "detail"){
-
-    if(isPortrait()){
-        createDetailMap(tNewHomeData, tNewAwayData);
-    }else{
-        createDetailMap(newHomeData, newAwayData);
-    };
-
+    createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, newHomePassingData, newAwayPassingData, tNewHomePassingData, tNewAwayPassingData);
   }
 })
 
@@ -78,10 +71,16 @@ $("#away-team").click(function(){
     var newAwayData = [];
     var tNewAwayData = [];
     var tNewHomeData = [];
+    var newHomePassingData = [];
+    var newAwayPassingData = [];
+    var tNewHomePassingData = [];
+    var tNewAwayPassingData = [];
 
     if(!awayTeamShowing){
         newAwayData = awayData;
         tNewAwayData = tAwayData;
+        newAwayPassingData = awayPassingData;
+        tNewAwayPassingData = tAwayPassingData;
         awayTeamShowing = true;
     }else{
         awayTeamShowing = false;
@@ -90,24 +89,16 @@ $("#away-team").click(function(){
     if(homeTeamShowing){
         newHomeData = homeData;
         tNewHomeData = tHomeData;
+        newHomePassingData = homePassingData;
+        tNewHomePassingData = tHomePassingData;
     }
 
     if(currentMapType == "heat"){
-
-      if(isPortrait()){
-          createHeatMap(tNewHomeData, tNewAwayData);
-      }else{
-          createHeatMap(newHomeData, newAwayData);
-      };
-
+      createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
     }else if(currentMapType == "detail"){
-
-      if(isPortrait()){
-          createDetailMap(tNewHomeData, tNewAwayData);
-      }else{
-          createDetailMap(newHomeData, newAwayData);
-      };
-
+      createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+    }else if(currentMapType == "passing"){
+      createMap(createPassingMap, newHomePassingData, newAwayPassingData, tNewHomePassingData, tNewAwayPassingData);
     }
 })
 
@@ -121,27 +112,27 @@ $("#randomizeData").click(function() {
   tHomeData = transposeData(homeData);
   tAwayData = transposeData(awayData);
 
+  homePassingData = createHomePassingData();
+  awayPassingData = createAwayPassingData();
+
+  tHomePassingData = transposePassingData(homePassingData);
+  tAwayPassingData = transposePassingData(awayPassingData);
 
   if(currentMapType == "heat"){
-
-    if(isPortrait()){
-        createHeatMap(tHomeData, tAwayData);
-    }else{
-        createHeatMap(homeData, awayData);
-    };
-
+    createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
   }else if(currentMapType == "detail"){
-
-    if(isPortrait()){
-        createDetailMap(tHomeData, tAwayData);
-    }else{
-        createDetailMap(homeData, awayData);
-    }
-
+    createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
   }
   homeTeamShowing = true;
   awayTeamShowing = true;
 });
+
+$("#passing-map-button").click(function() {
+  createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
+  currentMapType = "passing"
+})
 
 
 window.onresize = function(event) {
@@ -151,28 +142,31 @@ window.onresize = function(event) {
   var tNewAwayData = [];
   var tNewHomeData = [];
 
+  var newHomePassingData = [];
+  var newAwayPassingData = [];
+  var tNewAwayPassingData = [];
+  var tNewHomePassingData = [];
+
   if(awayTeamShowing){
       newAwayData = awayData;
       tNewAwayData = tAwayData;
+      newAwayPassingData = awayPassingData;
+      tNewAwayPassingData = tAwayPassingData;
   }
 
   if(homeTeamShowing){
       newHomeData = homeData;
       tNewHomeData = tHomeData;
+      newHomePassingData = homePassingData;
+      tNewHomePassingData = tHomePassingData;
   }
 
   if(currentMapType == "heat"){
-    if(isPortrait()){
-        createHeatMap(tNewHomeData, tNewAwayData);
-    }else{
-        createHeatMap(newHomeData, newAwayData);
-    };
+    createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
   }else if(currentMapType == "detail"){
-    if(isPortrait()){
-        createDetailMap(tNewHomeData, tNewAwayData);
-    }else{
-        createDetailMap(newHomeData, newAwayData);
-    };
+    createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+  }else if(currentMapType == "passing"){
+    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
   }
 
 }
