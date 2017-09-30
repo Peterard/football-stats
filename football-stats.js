@@ -16,13 +16,21 @@ createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
 var currentMapType = "detail";
 
 $("#detail-map-button").click(function(){
-  createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
-  currentMapType = "detail"
+  if(currentMapType != "detail"){
+    createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+    currentMapType = "detail"
+    homeTeamShowing = true;
+    awayTeamShowing = true;
+  }
 })
 
 $("#heatmap-button").click(function(){
-  createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
-  currentMapType = "heat";
+  if(currentMapType != "heat"){
+    createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
+    currentMapType = "heat";
+    homeTeamShowing = true;
+    awayTeamShowing = true;
+  }
 })
 
 var homeTeamShowing = true;
@@ -130,8 +138,12 @@ $("#randomizeData").click(function() {
 });
 
 $("#passing-map-button").click(function() {
-  createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
-  currentMapType = "passing"
+  if(currentMapType != "passing"){
+    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
+    currentMapType = "passing";
+    homeTeamShowing = true;
+    awayTeamShowing = true;
+  }
 })
 
 
