@@ -10,10 +10,10 @@ var awayPassingData = createAwayPassingData();
 var tHomePassingData = transposePassingData(homePassingData);
 var tAwayPassingData = transposePassingData(awayPassingData);
 
-createMap(createDetailMap, homeData, awayData, tHomeData, tAwayData);
+createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
 
 
-var currentMapType = "detail";
+var currentMapType = "heat";
 
 $("#detail-map-button").click(function(){
   if(currentMapType != "detail"){
