@@ -41,18 +41,21 @@ function resizeCanvas(canvasObject){
 function makeButtonsMobileFriendly(){
   $("#centering button").css("width", "100%");
   $("#centering button").css("font-size", "30px");
+  $("#centering button").css("display", "block");
 }
 
 function makeButtonsMobileFriendlyOnSquareScreen(){
   $("#centering button").css("width", "61vh");
   $("#centering button").css("font-size", "30px");
   $("#centering button").css("margin","auto");
+  $("#centering button").css("display", "block");
 }
 
 function makeButtonsComputerFriendly(){
-  $("#centering button").css("width", "16%");
+  $("#centering button").css("width", "15%");
   $("#centering button").css("height", "60px");
   $("#centering button").css("font-size", "16px");
+  $("#centering button").css("display", "inline");
 }
 
 function isPortrait(){

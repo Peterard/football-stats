@@ -21,14 +21,14 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
     var colorArray =[];
     var styleArray =[];
 
-    for(var secondaryArrayCounter = 0; secondaryArrayCounter < awayDataArrayPassingMap[arrayCounter].length; secondaryArrayCounter++){
+    for(var secondaryArrayCounter = 0; secondaryArrayCounter < homeDataArrayPassingMap[arrayCounter].length; secondaryArrayCounter++){
       if(secondaryArrayCounter === 0){
         borderColorArray[secondaryArrayCounter] = "rgb(20, 240, 50)";
-        colorArray[secondaryArrayCounter] = color("rgba(20, 240, 50,0.3)").alpha(0.3).rgbString();
+        colorArray[secondaryArrayCounter] = color("rgba(20, 240, 50,0.3)").alpha(0.7).rgbString();
         styleArray[secondaryArrayCounter] = 'circle';
-      }else if(secondaryArrayCounter === awayDataArrayPassingMap[arrayCounter].length-1){
+      }else if(secondaryArrayCounter === homeDataArrayPassingMap[arrayCounter].length-1){
         borderColorArray[secondaryArrayCounter] = "rgba(0,0,0,1)";
-        colorArray[secondaryArrayCounter] = color("rgba(0,0,0,1)").alpha(0.3).rgbString();
+        colorArray[secondaryArrayCounter] = color("rgb(20, 240, 50)").alpha(0.7).rgbString();
         styleArray[secondaryArrayCounter] = 'crossRot';
       }else{
         borderColorArray[secondaryArrayCounter] = "rgb(20, 240, 50)";
@@ -67,7 +67,7 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
         styleArray[secondaryArrayCounter] = 'circle';
       }else if(secondaryArrayCounter === awayDataArrayPassingMap[arrayCounter].length-1){
         borderColorArray[secondaryArrayCounter] = "rgba(0,0,0,1)";
-        colorArray[secondaryArrayCounter] = color("rgba(0,0,0,1)").alpha(0.7).rgbString();
+        colorArray[secondaryArrayCounter] = color(window.chartColors.red).alpha(0.7).rgbString();
         styleArray[secondaryArrayCounter] = 'crossRot';
       }else{
         borderColorArray[secondaryArrayCounter] = window.chartColors.red;
@@ -104,6 +104,11 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
       window.myScatter = Chart.Scatter(ctx, {
           data: scatterChartData,
           options: {
+            elements: {
+             line: {
+                 tension: 0.17
+               }
+             },
             animation: {
                 duration: 0
             },
@@ -137,7 +142,10 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
                           if(Number(tooltipItem.index) === 0){
                             return ["Won by: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player,
                             "Min: " +data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].min];
-                          }else{
+                          }else if(Number(tooltipItem.index) === (data["datasets"][tooltipItem.datasetIndex]["data"].length - 1)){
+                            return ["Shot by: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player,
+                            "Min: " +data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].min];
+                          }else {
                             return ["Passed by: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player,
                             "Min: " +data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].min];
                           }
