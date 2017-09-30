@@ -40,6 +40,8 @@ function resizeCanvas(canvasObject){
 
 function makeButtonsMobileFriendly(){
   $("#centering button").css("width", "100%");
+  $("#centering button").css("margin-top", ($("#background-div").width()/50)+"px");
+  $("#centering button").css("margin-bottom", ($("#background-div").width()/50)+"px");
   $("#centering button").css("font-size", ($("#background-div").width()/15)+"px");
   $("#centering button").css("display", "block");
 }
