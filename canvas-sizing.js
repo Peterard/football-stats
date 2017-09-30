@@ -4,8 +4,8 @@ function resizeCanvas(canvasObject){
 
   if(window.outerHeight > window.outerWidth){
 
-    $("#background-div").css("width","93vw");
-    $("#background-div").css("height","140.5vw");
+    $("#background-div").css("width","97vw");
+    $("#background-div").css("height","146.5vw");
     $("#centering").css("margin-left","0.2vw");
     $("#centering").css("margin-right","0.2vw");
     letterbox = false;
@@ -40,7 +40,7 @@ function resizeCanvas(canvasObject){
 
 function makeButtonsMobileFriendly(){
   $("#centering button").css("width", "100%");
-  $("#centering button").css("font-size", "30px");
+  $("#centering button").css("font-size", "70px");
   $("#centering button").css("display", "block");
 }
 
