@@ -2,7 +2,7 @@ var letterbox;
 
 function resizeCanvas(canvasObject){
 
-  if(window.outerHeight > 1.7*window.outerWidth){
+  if(window.outerHeight > window.outerWidth){
 
     $("#background-div").css("width","93vw");
     $("#background-div").css("height","140.5vw");
