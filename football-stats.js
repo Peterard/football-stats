@@ -12,6 +12,15 @@ var tAwayPassingData = transposePassingData(awayPassingData);
 
 createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
 
+console.log($("#centering").width())
+
+$("button").click(function(){
+        $.ajax({url: "https://peterard.github.io/football-stats/test-json.js", success: function(result){
+            console.log(result);
+            console.log(JSON.parse(result));
+        }});
+    });
+
 
 var currentMapType = "heat";
 

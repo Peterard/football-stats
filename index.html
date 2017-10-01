@@ -7,7 +7,7 @@
     <script src="utilities/Chart.bundle.min.js"></script>
     <script src="utilities/utils.js"></script>
     <script src="utilities/simpleheat.js"></script>
-    <script src="utilities/jquery-3.2.1.slim.js"></script>
+    <script src="utilities/jquery-3.2.1.js"></script>
     <style>
     canvas {
         -moz-user-select: none;
@@ -39,10 +39,35 @@
     .data-buttons{
       background-color:#f7c6b2;
     }
+
+    .match-detail{
+      display:inline-block;
+    }
+
+    #match-details{
+      margin:auto;
+    }
     </style>
 </head>
 
 <body>
+    <div id="match-report">
+      <div id="match-details">
+        <div id="home-team-details" class="match-detail">
+          <div id="home-team-crest"><img src="http://cdn.bleacherreport.net/images/team_logos/328x328/world_football.png" alt="HOME_TEAM crest" style="width:10%;"></div>
+          <div id="home-team-name">HOME_TEAM</div>
+          <div id="home-team-manager">HOME_TEAM_MANAGER</div>
+        </div>
+        <div id="result-details" class="match-detail">
+          <div id="score">4-4</div>
+        </div>
+        <div id="away-team-details" class="match-detail">
+          <div id="away-team-crest"><img src="http://nflrt.com/wp-content/uploads/2014/09/Patriots-FC.png" alt="AWAY_TEAM crest" style="width:10%;"></div>
+          <div id="away-team-name">AWAY_TEAM</div>
+          <div id="away-team-manager">AWAY_TEAM_MANAGER</div>
+        </div>
+      </div>
+    </div>
     <div id="centering">
       <div id="background-div">
       </div>
