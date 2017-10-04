@@ -3,7 +3,8 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
   var homeDataArrayPassingMap = homeDataArrayInput;
   var awayDataArrayPassingMap = awayDataArrayInput;
 
-  $("#background-div").empty();
+  resetPage();
+  mapMode();
 
   $("#background-div").append('<canvas id="detail-map"></canvas>');
 
@@ -136,7 +137,7 @@ function createPassingMap(homeDataArrayInput, awayDataArrayInput){
                   text: 'Test Football Chart'
               },
               tooltips: {
-                  bodyFontSize: 20,
+                  bodyFontSize: getFontSize(),
                     callbacks: {
                         label: function(tooltipItem, data) {
                           if(Number(tooltipItem.index) === 0){

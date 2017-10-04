@@ -3,7 +3,8 @@
 <html>
 
 <head>
-    <title>Scatter Chart</title>
+    <title>Example Match Report</title>
+    <!-- <meta name="viewport" content="width=device-width"> -->
     <script src="utilities/Chart.bundle.min.js"></script>
     <script src="utilities/utils.js"></script>
     <script src="utilities/simpleheat.js"></script>
@@ -30,6 +31,7 @@
       border-color:#80d4ff;
       border-style:solid;
       border-width:3px;
+      text-align:center;
     }
 
     .map-buttons{
@@ -40,6 +42,10 @@
       background-color:#f7c6b2;
     }
 
+    .match-report-button{
+      background-color:#f47200;
+    }
+
     .match-detail{
       display:inline-block;
     }
@@ -47,33 +53,93 @@
     #match-details{
       margin:auto;
     }
+
+    .match-detail{
+      width:28%;
+      margin:2%;
+    }
+
+    .secondary-match-details{
+      width:25%;
+      margin:2%;
+    }
+
+    #result-details{
+      vertical-align: text-bottom;
+    }
+
+    #match-report{
+      margin:auto;
+      text-align:center;
+      width:97vw;
+    }
+
+    .crest{
+      width:25%;
+    }
+
+    .secondary-match-details{
+      display:block;
+    }
+
+    .secondary-match-detail{
+      display:block;
+    }
+
+    .event-list{
+      vertical-align: top;
+      width:30%;
+      margin:auto;
+      text-align:center;
+    }
+
+    .home-event{
+      float:left;
+    }
+
+    .match-event{
+      display:block;
+    }
+
+    .away-event{
+      float:right;
+    }
+
+    /*@media screen and (min-width: 1000px) {
+      #date{
+        font-size:20px;
+      }
+
+      #competition{
+        font-size:20px;
+        font-weight: bold;
+      }
+
+      #score{
+        font-size:35px;
+      }
+
+      .team-name{
+        font-size:35px;
+      }
+
+      .manager-name{
+        font-size:15px;
+      }
+}*/
     </style>
 </head>
 
 <body>
-    <div id="match-report">
-      <div id="match-details">
-        <div id="home-team-details" class="match-detail">
-          <div id="home-team-crest"><img src="http://cdn.bleacherreport.net/images/team_logos/328x328/world_football.png" alt="HOME_TEAM crest" style="width:10%;"></div>
-          <div id="home-team-name">HOME_TEAM</div>
-          <div id="home-team-manager">HOME_TEAM_MANAGER</div>
-        </div>
-        <div id="result-details" class="match-detail">
-          <div id="score">4-4</div>
-        </div>
-        <div id="away-team-details" class="match-detail">
-          <div id="away-team-crest"><img src="http://nflrt.com/wp-content/uploads/2014/09/Patriots-FC.png" alt="AWAY_TEAM crest" style="width:10%;"></div>
-          <div id="away-team-name">AWAY_TEAM</div>
-          <div id="away-team-manager">AWAY_TEAM_MANAGER</div>
-        </div>
-      </div>
-    </div>
+  <div id="match-report">
+  </div>
     <div id="centering">
       <div id="background-div">
       </div>
       <button class="data-buttons" id="randomizeData">Randomize Data</button>
       <button id="home-team">Home Team</button>
       <button id="away-team">Away Team</button>
+      <button class="match-report-button" id="match-report-button">Match Report</button>
       <button class="map-buttons" id="detail-map-button">Detail Map</button>
       <button class="map-buttons" id="heatmap-button">Heat Map</button>
       <button class="map-buttons" id="passing-map-button">Possions Chart</button>
@@ -82,6 +148,7 @@
     <script src="create-heat-map.js"></script>
     <script src="create-detail-map.js"></script>
     <script src="create-passing-map.js"></script>
+    <script src="create-match-report.js"></script>
     <script src="data-handler.js"></script>
     <script src="football-stats.js"></script>
 </body>

@@ -12,8 +12,6 @@ var tAwayPassingData = transposePassingData(awayPassingData);
 
 createMap(createHeatMap, homeData, awayData, tHomeData, tAwayData);
 
-console.log($("#centering").width())
-
 $("button").click(function(){
         $.ajax({url: "https://peterard.github.io/football-stats/test-json.js", success: function(result){
             console.log(result);
@@ -155,39 +153,49 @@ $("#passing-map-button").click(function() {
   }
 })
 
+$("#match-report-button").click(function(){
+  createMatchReport();
+  currentMapType = "report";
+});
+
 
 window.onresize = function(event) {
 
-  var newHomeData = [];
-  var newAwayData = [];
-  var tNewAwayData = [];
-  var tNewHomeData = [];
+  if(currentMapType === "report"){
+    resizeMatchReport();
+  }else{
 
-  var newHomePassingData = [];
-  var newAwayPassingData = [];
-  var tNewAwayPassingData = [];
-  var tNewHomePassingData = [];
+    var newHomeData = [];
+    var newAwayData = [];
+    var tNewAwayData = [];
+    var tNewHomeData = [];
 
-  if(awayTeamShowing){
-      newAwayData = awayData;
-      tNewAwayData = tAwayData;
-      newAwayPassingData = awayPassingData;
-      tNewAwayPassingData = tAwayPassingData;
-  }
+    var newHomePassingData = [];
+    var newAwayPassingData = [];
+    var tNewAwayPassingData = [];
+    var tNewHomePassingData = [];
 
-  if(homeTeamShowing){
-      newHomeData = homeData;
-      tNewHomeData = tHomeData;
-      newHomePassingData = homePassingData;
-      tNewHomePassingData = tHomePassingData;
-  }
+    if(awayTeamShowing){
+        newAwayData = awayData;
+        tNewAwayData = tAwayData;
+        newAwayPassingData = awayPassingData;
+        tNewAwayPassingData = tAwayPassingData;
+    }
 
-  if(currentMapType == "heat"){
-    createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
-  }else if(currentMapType == "detail"){
-    createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
-  }else if(currentMapType == "passing"){
-    createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
-  }
+    if(homeTeamShowing){
+        newHomeData = homeData;
+        tNewHomeData = tHomeData;
+        newHomePassingData = homePassingData;
+        tNewHomePassingData = tHomePassingData;
+    }
+
+    if(currentMapType == "heat"){
+      createMap(createHeatMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+    }else if(currentMapType == "detail"){
+      createMap(createDetailMap, newHomeData, newAwayData, tNewHomeData, tNewAwayData);
+    }else if(currentMapType == "passing"){
+      createMap(createPassingMap, homePassingData, awayPassingData, tHomePassingData, tAwayPassingData);
+    }
+}
 
 }

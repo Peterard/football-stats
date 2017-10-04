@@ -5,7 +5,8 @@ function createHeatMap(homeDataInput, awayDataInput){
 
   dataArray = homeDataArray.concat(awayDataArray);
 
-  $("#background-div").empty();
+  resetPage();
+  mapMode();
 
   $("#background-div").append('<canvas id="heatmap"></canvas>');
 

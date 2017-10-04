@@ -3,7 +3,8 @@ function createDetailMap(homeDataArrayInput, awayDataArrayInput){
   var homeDataArrayDetailMap = homeDataArrayInput;
   var awayDataArrayDetailMap = awayDataArrayInput;
 
-  $("#background-div").empty();
+  resetPage();
+  mapMode();
 
   $("#background-div").append('<canvas id="detail-map"></canvas>');
 
@@ -66,7 +67,7 @@ function createDetailMap(homeDataArrayInput, awayDataArrayInput){
                   text: 'Test Football Chart'
               },
               tooltips: {
-                  bodyFontSize: 20,
+                  bodyFontSize: getFontSize(),
                     callbacks: {
                         label: function(tooltipItem, data) {
                             return ["Player: "+data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].player,
