@@ -53,69 +53,49 @@ function createMatchReport(){
     <div>\
     <div id="match-events" class="event-list-holder">\
     </div>\
+    <div id="team-list"></div>\
   </div>';
 
   $("#match-report").append(matchReportHeader);
 
-  var homeEvents = "";
-
-  if(matchEvents.length > 0){
-    homeEvents = homeEvents + '<div id="home-match-events" class="event-list">';
-  }
+  var events = "";
 
   for(var eventsCounter = 0; eventsCounter < matchEvents.length; eventsCounter++){
+
+    events = events + '<div class="outer-event-row">';
+
     if(matchEvents[eventsCounter]["side"] === "home"){
       if(matchEvents[eventsCounter]["eventType"] === "goal"){
-        homeEvents = homeEvents +'<div class="event-row event-row-'+eventsCounter+'">' + wordForGoal +'<div class="match-event home-event">'+ " "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">' + wordForGoal +'<div class="match-event home-event">'+ " "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
       }else if(matchEvents[eventsCounter]["eventType"] === "penalty-goal"){
-        homeEvents = homeEvents +'<div class="event-row event-row-'+eventsCounter+'">' + wordForGoal +'<div class="match-event home-event">'+ " ("+ wordForPenalty +") "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">' + wordForGoal +'<div class="match-event home-event">'+ " ("+ wordForPenalty +") "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
       } else if(matchEvents[eventsCounter]["eventType"] === "red-card"){
-        homeEvents = homeEvents +'<div class="event-row event-row-'+eventsCounter+'">'+ wordForRedCard +'<div class="match-event home-event">'+ " "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">'+ wordForRedCard +'<div class="match-event home-event">'+ " "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"] +'\'</div>'+'</div>';
       }
     }else{
-      homeEvents = homeEvents + '<div class="empty-event match-event"></div>'
+      events = events + '<div class="inner-event-row empty-row"></div>'
     }
-  }
 
-  if(matchEvents.length > 0){
-    homeEvents = homeEvents + '</div>';
-  }
+    events = events + '<div class="inner-event-row mins-event-row">'+ matchEvents[eventsCounter]["min"] +'</div>';
 
-  var awayEvents = "";
-
-  if(matchEvents.length > 0){
-    awayEvents = awayEvents + '<div id="away-match-events" class="event-list">';
-  }
-
-  for(var eventsCounter = 0; eventsCounter < matchEvents.length; eventsCounter++){
     if(matchEvents[eventsCounter]["side"] === "away"){
       if(matchEvents[eventsCounter]["eventType"] === "goal"){
-        awayEvents = awayEvents +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\'  &nbsp;"+'</div>'+ wordForGoal+'</div>'; ;
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\'  &nbsp;"+'</div>'+ wordForGoal+'</div>'; ;
       }else if(matchEvents[eventsCounter]["eventType"] === "penalty-goal"){
-        awayEvents = awayEvents +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+"("+ wordForPenalty +") "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\' &nbsp;" +'</div>'+wordForGoal+'</div>';
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+"("+ wordForPenalty +") "+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\' &nbsp;" +'</div>'+wordForGoal+'</div>';
       } else if(matchEvents[eventsCounter]["eventType"] === "red-card"){
-        awayEvents = awayEvents +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\'  &nbsp;"+'</div>'+ wordForRedCard+'</div>';
+        events = events +'<div class="event-row event-row-'+eventsCounter+'">' + '<div class="match-event away-event">'+matchEvents[eventsCounter]["player"]+" "+ matchEvents[eventsCounter]["min"]+"\'  &nbsp;"+'</div>'+ wordForRedCard+'</div>';
       }
     }else{
-      awayEvents = awayEvents + '<div class="empty-event match-event"></div>'
+      events = events + '<div class="inner-event-row empty-row"></div>'
     }
+
+    events = events + '</div>';
+
   }
-
-  if(matchEvents.length > 0){
-    awayEvents = awayEvents + '</div>';
-  }
-
-  var eventsSpacing = "<div style='display:inline-block; width:5vw;'></div>";
-
-  var eventsBanner = "";
-  if (matchEvents.length > 0){
-    var eventsBanner = "<div id='events-banner'>Match Events</div>";
-  }
-
-
 
   $("#match-events").empty();
-  $("#match-events").append(eventsBanner + homeEvents + eventsSpacing + awayEvents);
+  $("#match-events").append(events);
 
   resizeMatchReport();
 }

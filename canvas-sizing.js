@@ -103,15 +103,15 @@ function resizeMatchReport(){
      $(".event-list").css("width","350px");
 
    }else if(window.outerWidth < 550){
-      $("*").css("font-size", "2.4vw");
-       $("#date").css("font-size","3vw");
+      $("*").css("font-size", "3.1vw");
+       $("#date").css("font-size","3.5vw");
        $("#competition").css("font-size","3vw");
        $("#score").css("font-size","8vw");
        $(".team-name").css("font-size","6vw");
        $(".manager-name").css("font-size","3vw");
-       $(".secondary-match-detail").css("font-size","2.4vw");
+       $(".secondary-match-detail").css("font-size","3.1vw");
        $("#events-banner").css("font-size","5vw");
-       $(".match-event").css("font-size","3vw");
+       $(".match-event").css("font-size","3.5vw");
        $(".match-event").css("min-height","5vw");
        $(".event-icon-football").css("height","3vw");
        $(".event-icon-football").css("width","3vw");
