@@ -9,7 +9,16 @@
     <script src="utilities/utils.js"></script>
     <script src="utilities/simpleheat.js"></script>
     <script src="utilities/jquery-3.2.1.min.js"></script>
+    <meta name="viewport" content="user-scalable = no">
     <style>
+    body{
+      margin:0px;
+    }
+
+    *{
+      vertical-align: top;
+    }
+
     canvas {
         -moz-user-select: none;
         -webkit-user-select: none;
@@ -78,31 +87,74 @@
       width:25%;
     }
 
-    .secondary-match-details{
+    #secondary-match-details{
       display:block;
+      margin-top: -4vw;
     }
 
     .secondary-match-detail{
       display:block;
     }
 
-    .event-list{
+    .event-list-holder{
       vertical-align: top;
-      width:30%;
+      width:100%;
       margin:auto;
       text-align:center;
     }
 
-    .home-event{
-      float:left;
+    .event-list{
+      display:inline-block;
+      vertical-align: top;
     }
 
-    .match-event{
-      display:block;
+    #events-banner{
+      margin-top: 2vw;
+    }
+
+    .home-event{
+      text-align: left;
     }
 
     .away-event{
-      float:right;
+      text-align: right;
+    }
+
+    .match-event{
+      display:inline-block;
+      max-width:40vw;
+    }
+
+    .event-row{
+      display:block;
+    }
+
+    .event-icon{
+      display:inline-block;
+      margin:0vw 0.3vw;
+      vertical-align:sub;
+    }
+
+    #events-banner{
+      background-color: #b2b2b2;
+    }
+
+    #home-match-events{
+      width:20vw;
+      text-align: left;
+    }
+
+    #away-match-events{
+      width:20vw;
+      text-align: right;
+    }
+
+    #show-buttons{
+      height:4vw;
+      width:100%;
+      background-color:#f2f2f2;
+      text-align: center;
+      font-size: 3.5vw;
     }
 
     /*@media screen and (min-width: 1000px) {
@@ -131,18 +183,21 @@
 </head>
 
 <body>
+<div id="control-buttons">
+  <div id="show-buttons" style="display:none;">Options</div>
+  <button class="data-buttons" id="randomizeData">Randomize Data</button>
+  <button id="home-team">Home Team</button>
+  <button id="away-team">Away Team</button>
+  <button class="match-report-button" id="match-report-button">Match Report</button>
+  <button class="map-buttons" id="detail-map-button">Detail Map</button>
+  <button class="map-buttons" id="heatmap-button">Heat Map</button>
+  <button class="map-buttons" id="passing-map-button">Possions Chart</button>
+</div>
   <div id="match-report">
   </div>
     <div id="centering">
       <div id="background-div">
       </div>
-      <button class="data-buttons" id="randomizeData">Randomize Data</button>
-      <button id="home-team">Home Team</button>
-      <button id="away-team">Away Team</button>
-      <button class="match-report-button" id="match-report-button">Match Report</button>
-      <button class="map-buttons" id="detail-map-button">Detail Map</button>
-      <button class="map-buttons" id="heatmap-button">Heat Map</button>
-      <button class="map-buttons" id="passing-map-button">Possions Chart</button>
     </div>
     <script src="canvas-sizing.js"></script>
     <script src="create-heat-map.js"></script>

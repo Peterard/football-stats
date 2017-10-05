@@ -158,6 +158,10 @@ $("#match-report-button").click(function(){
   currentMapType = "report";
 });
 
+$("#show-buttons").click(function(){
+  $(this).siblings().toggle();
+});
+
 
 window.onresize = function(event) {
 

@@ -37,19 +37,21 @@ function resizeCanvas(canvasObject){
 }
 
 function makeButtonsMobileFriendly(){
-  $("#centering button").css("width", "100%");
-  $("#centering button").css("margin-top", ($("#background-div").width()/50)+"px");
-  $("#centering button").css("margin-bottom", ($("#background-div").width()/50)+"px");
-  $("#centering button").css("font-size", ($("#background-div").width()/20)+"px");
-  $("#centering button").css("height", ($("#background-div").width()/15)+"px");
-  $("#centering button").css("display", "block");
+  $("#control-buttons button").css("width", "100%");
+  $("#control-buttons button").css("margin-top", ($("#background-div").width()/50)+"px");
+  $("#control-buttons button").css("margin-bottom", ($("#background-div").width()/50)+"px");
+  $("#control-buttons button").css("font-size", ($("#background-div").width()/20)+"px");
+  $("#control-buttons button").css("height", ($("#background-div").width()/15)+"px");
+  $("#control-buttons button").css("display", "none");
+  $("#show-buttons").css("display", "block");
 }
 
 function makeButtonsComputerFriendly(){
-  $("#centering button").css("width", "calc((100% / 7) - 5px)");
-  $("#centering button").css("height", "60px");
-  $("#centering button").css("font-size", "16px");
-  $("#centering button").css("display", "inline");
+  $("#control-buttons button").css("width", "calc((100% / 7) - 5px)");
+  $("#control-buttons button").css("height", "30px");
+  $("#control-buttons button").css("font-size", "16px");
+  $("#control-buttons button").css("display", "inline");
+  $("#show-buttons").css("display", "none");
 }
 
 function isPortrait(){
@@ -82,14 +84,41 @@ function mapMode(){
 function resizeMatchReport(){
 
    $("#match-report").css("width","97vw");
-   if(window.outerWidth > 1000){
+   if(window.outerWidth > 1100){
+     $("*").css("font-size", "12px");
      $("#date").css("font-size","15px");
      $("#competition").css("font-size","15px");
      $("#score").css("font-size","45px");
      $(".team-name").css("font-size","35px");
      $(".manager-name").css("font-size","15px");
      $(".secondary-match-detail").css("font-size","12px");
+     $("#events-banner").css("font-size","25px");
+     $(".match-event").css("font-size","15px");
+     $(".match-event").css("min-height","25px");
+     $(".event-icon-football").css("height","17.5px");
+     $(".event-icon-football").css("width","17.5px");
+     $(".event-icon-red-card").css("height","18px");
+     $(".event-icon-red-card").css("width","13.8px");
+     $(".red-card-spacing").css("width","1.85px");
+     $(".event-list").css("width","350px");
 
+   }else if(window.outerWidth < 550){
+      $("*").css("font-size", "2.4vw");
+       $("#date").css("font-size","3vw");
+       $("#competition").css("font-size","3vw");
+       $("#score").css("font-size","8vw");
+       $(".team-name").css("font-size","6vw");
+       $(".manager-name").css("font-size","3vw");
+       $(".secondary-match-detail").css("font-size","2.4vw");
+       $("#events-banner").css("font-size","5vw");
+       $(".match-event").css("font-size","3vw");
+       $(".match-event").css("min-height","5vw");
+       $(".event-icon-football").css("height","3vw");
+       $(".event-icon-football").css("width","3vw");
+       $(".event-icon-red-card").css("height","3vw");
+       $(".event-icon-red-card").css("width","2.3vw");
+       $(".red-card-spacing").css("width","0.35vw");
+       $(".event-list").css("width","45vw");
    }else{
      $("*").css("font-size", "1.2vw");
      $("#date").css("font-size","1.5vw");
@@ -98,5 +127,14 @@ function resizeMatchReport(){
      $(".team-name").css("font-size","3.5vw");
      $(".manager-name").css("font-size","1.5vw");
      $(".secondary-match-detail").css("font-size","1.2vw");
+     $("#events-banner").css("font-size","2.5vw");
+     $(".match-event").css("font-size","1.5vw");
+     $(".match-event").css("min-height","2.5vw");
+     $(".event-icon-football").css("height","1.46vw");
+     $(".event-icon-football").css("width","1.46vw");
+     $(".event-icon-red-card").css("height","1.5vw");
+     $(".event-icon-red-card").css("width","1.15vw");
+     $(".red-card-spacing").css("width","0.155vw");
+     $(".event-list").css("width","35vw");
    }
 }
