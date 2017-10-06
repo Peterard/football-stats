@@ -101,7 +101,7 @@ function createMatchReport(){
   $("#match-events").empty();
   $("#match-events").append(events);
 
-  var teamSheets = "<div id='teamsheets'>Teamsheets</div>";
+  var teamSheets = "<div id='teamsheets'>Teamsheets"+ $(".event-text").css("width") +" : "+ window.outerWidth +"</div>";
 
   $("#match-events").append(teamSheets);
 
