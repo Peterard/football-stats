@@ -119,9 +119,9 @@ function resizeMatchReport(){
        $("#events-banner").css("font-size","5vw");
        $(".match-event").css("font-size","3.5vw");
        $(".match-event").css("min-height","5vw");
-       $(".match-event").css("width","40.8vw");
-       $(".event-text").css("width","45vw");
-       $(".empty-row").css("width","45vw");
+       $(".match-event").css("width","30.8vw");
+       $(".event-text").css("width","35vw");
+       $(".empty-row").css("width","35vw");
        $(".icon-holder").css("margin-left","0.6vw");
        $(".icon-holder").css("margin-right","0.6vw");
        $(".icon-holder").css("width","3vw");
