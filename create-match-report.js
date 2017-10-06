@@ -106,4 +106,7 @@ function createMatchReport(){
   $("#match-events").append(teamSheets);
 
   resizeMatchReport();
+
+  $("#match-events").append(teamSheets);
+
 }
