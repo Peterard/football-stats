@@ -66,7 +66,7 @@ function createMatchReport(){
       events = events + '<div id="events-header">Match events</div>';
     }
 
-    events = events + '<div class="outer-event-row">';
+    events = events + '<div class="outer-event-row" style="width:100vw;">';
 
     if(matchEvents[eventsCounter]["side"] === "home"){
       if(matchEvents[eventsCounter]["eventType"] === "goal"){
