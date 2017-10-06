@@ -91,6 +91,7 @@ function resizeMatchReport(){
         $(".manager-name").css("font-size","2.9vw");
         $(".secondary-match-detail").css("font-size","2.9vw");
         $(".match-event").css("font-size","3.5vw");
+        $(".inner-event-row").css("font-size","3.5vw");
         $(".match-event").css("min-height","5vw");
         $(".match-event").css("width","40.8vw");
         $(".event-text").css("width","45vw");
@@ -115,6 +116,7 @@ function resizeMatchReport(){
      $(".manager-name").css("font-size","15px");
      $(".secondary-match-detail").css("font-size","12px");
      $(".match-event").css("font-size","15px");
+     $(".inner-event-row").css("font-size","15px");
      $(".match-event").css("min-height","25px");
      $(".match-event").css("width","175.5px");
      $(".event-text").css("width","200px");
@@ -140,6 +142,7 @@ function resizeMatchReport(){
        $(".manager-name").css("font-size","2.9vw");
        $(".secondary-match-detail").css("font-size","2.9vw");
        $(".match-event").css("font-size","3.5vw");
+       $(".inner-event-row").css("font-size","3.5vw");
        $(".match-event").css("min-height","5vw");
        $(".match-event").css("width","40.8vw");
        $(".event-text").css("width","45vw");
@@ -164,6 +167,7 @@ function resizeMatchReport(){
      $(".manager-name").css("font-size","1.8vw");
      $(".secondary-match-detail").css("font-size","1.5vw");
      $(".match-event").css("font-size","1.8vw");
+     $(".inner-event-row").css("font-size","1.8vw");
      $(".match-event").css("min-height","2.8vw");
      $(".match-event").css("width","27.8vw");
      $(".event-text").css("width","30vw");
