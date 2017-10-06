@@ -82,8 +82,31 @@ function mapMode(){
 }
 
 function resizeMatchReport(){
-
-   if(window.outerWidth > 900){
+  if(window.outerWidth < 550 || window.outerWidth < window.outerHeight){
+       $("*").css("font-size", "3.1vw");
+        $("#date").css("font-size","2.8vw");
+        $("#competition").css("font-size","2.8vw");
+        $("#score").css("font-size","9vw");
+        $(".team-name").css("font-size","5.5vw");
+        $(".manager-name").css("font-size","2.9vw");
+        $(".secondary-match-detail").css("font-size","2.9vw");
+        $("#events-banner").css("font-size","5vw");
+        $(".match-event").css("font-size","3.5vw");
+        $(".match-event").css("min-height","5vw");
+        $(".match-event").css("width","40.8vw");
+        $(".event-text").css("width","45vw");
+        $(".empty-row").css("width","45vw");
+        $(".icon-holder").css("margin-left","0.6vw");
+        $(".icon-holder").css("margin-right","0.6vw");
+        $(".icon-holder").css("width","3vw");
+        $(".event-icon-football").css("height","3vw");
+        $(".event-icon-football").css("width","3vw");
+        $(".event-icon-red-card").css("height","3vw");
+        $(".event-icon-red-card").css("width","2.3vw");
+        $("#events-header").css("font-size","3.7vw");
+        $("#teamsheets").css("font-size","3.7vw");
+        $("#primary-match-details").css("padding-bottom","0.9vw");
+  }else if(window.outerWidth > 900){
      $("*").css("font-size", "12px");
      $("#date").css("font-size","15px");
      $("#competition").css("font-size","15px");
@@ -119,9 +142,9 @@ function resizeMatchReport(){
        $("#events-banner").css("font-size","5vw");
        $(".match-event").css("font-size","3.5vw");
        $(".match-event").css("min-height","5vw");
-       $(".match-event").css("width","30.8vw");
-       $(".event-text").css("width","35vw");
-       $(".empty-row").css("width","35vw");
+       $(".match-event").css("width","40.8vw");
+       $(".event-text").css("width","45vw");
+       $(".empty-row").css("width","45vw");
        $(".icon-holder").css("margin-left","0.6vw");
        $(".icon-holder").css("margin-right","0.6vw");
        $(".icon-holder").css("width","3vw");
