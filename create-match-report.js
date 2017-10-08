@@ -82,7 +82,8 @@ function createMatchReport(){
   var totalTimeElapsed = timeElapsedFirstHalf+timeElapsedSecondHalf;
   var matchEvents = [{eventType:"goal", side:"home", player:"Bandrea Birlo", min:22},
             {eventType:"red-card", side:"away", player:"Venegoor Of Hesselink", min:29},
-            {eventType:"penalty-goal", side:"away", player:"Lamine Zemmamouche", min:44},
+            {eventType:"penalty-goal", side:"home", player:"Lamine Zemmamouche", min:44},
+            {eventType:"penalty-goal", side:"home", player:"Lamine Zemmamouche", min:47},
             {eventType:"red-card", side:"home", player:"Pangel Pi Paria", min:75},
             {eventType:"goal", side:"away", player:"Miego Morlan", min:85}];
 
@@ -250,8 +251,8 @@ function createMatchReport(){
     }
   }
 
-  teamSheets = teamSheets + homeStarters + homeSubs + homeSquad
-                + awayStarters + awaySubs + awaySquad;
+  teamSheets = teamSheets + '<div class="teamsheet-holder">' + homeStarters + homeSubs + homeSquad + '</div>'
+                + '<div class="teamsheet-holder">' + awayStarters + awaySubs + awaySquad + '</div>';
 
   $("#match-events").append(teamSheets);
 

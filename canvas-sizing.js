@@ -60,7 +60,7 @@ function isPortrait(){
 
 function getFontSize(){
   if((window.outerHeight > window.outerWidth)){
-    return $("#background-div").width()/25;
+    return $("#background-div").width()/20;
   }else if(window.outerHeight <= window.outerWidth){
     return 20;
   }
@@ -89,7 +89,8 @@ function resizeMatchReport(){
         $("#score").css("font-size","9vw");
         $(".team-name").css("font-size","5.5vw");
         $(".manager-name").css("font-size","2.9vw");
-        $(".secondary-match-detail").css("font-size","2.9vw");
+        $(".secondary-match-detail").css("font-size","2.5vw");
+        $("#secondary-match-details").css("margin-top","-1vw");
         $(".match-event").css("font-size","3.5vw");
         $(".inner-event-row").css("font-size","3.5vw");
         $(".match-event").css("min-height","5vw");
@@ -107,6 +108,8 @@ function resizeMatchReport(){
         $("#events-header").css("font-size","3.7vw");
         $("#teamsheets").css("font-size","3.7vw");
         $("#primary-match-details").css("padding-bottom","0.9vw");
+        $(".teamsheet-holder").css("display","block");
+        $(".teamsheet-holder").css("width","100vw");
   }else if(window.outerWidth > 900){
      $("*").css("font-size", "12px");
      $("#date").css("font-size","15px");
@@ -115,6 +118,7 @@ function resizeMatchReport(){
      $(".team-name").css("font-size","30px");
      $(".manager-name").css("font-size","15px");
      $(".secondary-match-detail").css("font-size","12px");
+     $("#secondary-match-details").css("margin-top","-4vw");
      $(".match-event").css("font-size","15px");
      $(".inner-event-row").css("font-size","15px");
      $(".match-event").css("min-height","25px");
@@ -132,32 +136,8 @@ function resizeMatchReport(){
      $("#events-header").css("font-size","20px");
      $("#teamsheets").css("font-size","20px");
      $("#primary-match-details").css("padding-bottom","12px");
-
-   }else if(window.outerWidth < 550){
-      $("*").css("font-size", "3.1vw");
-       $("#date").css("font-size","2.8vw");
-       $("#competition").css("font-size","2.8vw");
-       $("#score").css("font-size","9vw");
-       $(".team-name").css("font-size","5.5vw");
-       $(".manager-name").css("font-size","2.9vw");
-       $(".secondary-match-detail").css("font-size","2.9vw");
-       $(".match-event").css("font-size","3.5vw");
-       $(".inner-event-row").css("font-size","3.5vw");
-       $(".match-event").css("min-height","5vw");
-       $(".match-event").css("width","40.8vw");
-       $(".event-text").css("width","45vw");
-       $(".empty-row").css("width","45vw");
-       $(".mins-event-row").css("width","5vw");
-       $(".icon-holder").css("margin-left","0.6vw");
-       $(".icon-holder").css("margin-right","0.6vw");
-       $(".icon-holder").css("width","3vw");
-       $(".event-icon-football").css("height","3vw");
-       $(".event-icon-football").css("width","3vw");
-       $(".event-icon-red-card").css("height","3vw");
-       $(".event-icon-red-card").css("width","2.3vw");
-       $("#events-header").css("font-size","3.7vw");
-       $("#teamsheets").css("font-size","3.7vw");
-       $("#primary-match-details").css("padding-bottom","0.9vw");
+     $(".teamsheet-holder").css("display","inline-block");
+     $(".teamsheet-holder").css("width","400px");
    }else{
      $("*").css("font-size", "1.5vw");
      $("#date").css("font-size","1.8vw");
@@ -166,6 +146,7 @@ function resizeMatchReport(){
      $(".team-name").css("font-size","3.1vw");
      $(".manager-name").css("font-size","1.8vw");
      $(".secondary-match-detail").css("font-size","1.5vw");
+     $("#secondary-match-details").css("margin-top","-1vw");
      $(".match-event").css("font-size","1.8vw");
      $(".inner-event-row").css("font-size","1.8vw");
      $(".match-event").css("min-height","2.8vw");
@@ -183,5 +164,7 @@ function resizeMatchReport(){
      $("#events-header").css("font-size","2.4vw");
      $("#teamsheets").css("font-size","2.4vw");
      $("#primary-match-details").css("padding-bottom","1.5vw");
+     $(".teamsheet-holder").css("display","inline-block");
+     $(".teamsheet-holder").css("width","40vw");
    }
 }
