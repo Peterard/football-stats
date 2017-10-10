@@ -161,98 +161,98 @@ function createMatchReport(){
   $("#match-events").empty();
   $("#match-events").append(events);
 
-  var teamSheets = "<div id='teamsheets'>"+wordForTeamSheet+ $(".event-text").css("width") +" : "+ window.outerWidth +"</div>";
+  var teamSheets = "<div id='teamsheets'>"+wordForTeamSheet +"</div>";
 
-  var homeStarters = "<div id='home-teamsheet-header'>"+teamNames[0]+" "
-                      +wordForTeamSheet+"</div>" + '<div id="home-teamsheet-starters-header">'
+  var homeStarters = "<div id='home-teamsheet-header' class='teamsheet-header'>"+teamNames[0]+" "
+                      +wordForTeamSheet+"</div>" + '<div id="home-teamsheet-starters-header"  class="teamsheet-header">'
                       +wordForHomeStarters+'</div>';
   var homeSubs = "";
-  var homeSquad = '<div id="home-teamsheet-squad-header">'
+  var homeSquad = '<div id="home-teamsheet-squad-header" class="teamsheet-header">'
   +wordForHomeSquad+'</div>';
 
   for(var teamSheetCounter = 0; teamSheetCounter < teamListHome.length; teamSheetCounter++){
     if(teamListHome[teamSheetCounter]["status"] === "starter"){
-        homeStarters = homeStarters + '<div class="home-teamsheet-starter-row">'+
-                                '<div class="home-teamsheet-text home-teamsheet-starter home-teamsheet-starter-number">'+
+        homeStarters = homeStarters + '<div class="home-teamsheet-starter-row teamsheet-row">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-starter home-teamsheet-starter-number">'+
                                 teamListHome[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-starter home-teamsheet-starter-position">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-starter home-teamsheet-starter-position">'+
                                 teamListHome[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-starter home-teamsheet-starter-name">'
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-starter home-teamsheet-starter-name">'
                                 +teamListHome[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
 
     if(teamListHome[teamSheetCounter]["status"] === "sub"){
       if(homeSubs.length < 1){
-        homeSubs = homeSubs + '<div id="home-teamsheet-subs-header">'
+        homeSubs = homeSubs + '<div id="home-teamsheet-subs-header"  class="teamsheet-header">'
         +wordForHomeSubs+'</div>';
       }
-        homeSubs = homeSubs + '<div class="home-teamsheet-sub-row">'+
-                                '<div class="home-teamsheet-text home-teamsheet-sub home-teamsheet-sub-number">'+
+        homeSubs = homeSubs + '<div class="home-teamsheet-sub-row teamsheet-row">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-sub home-teamsheet-sub-number">'+
                                 teamListHome[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-sub home-teamsheet-sub-position">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-sub home-teamsheet-sub-position">'+
                                 teamListHome[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-sub home-teamsheet-sub-name">'
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-sub home-teamsheet-sub-name">'
                                 +teamListHome[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
 
     if(teamListHome[teamSheetCounter]["status"] === "squad"){
-        homeSquad = homeSquad + '<div class="home-teamsheet-squad-row">'+
-                                '<div class="home-teamsheet-text home-teamsheet-squad home-teamsheet-squad-number">'+
+        homeSquad = homeSquad + '<div class="home-teamsheet-squad-row teamsheet-row">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-squad home-teamsheet-squad-number">'+
                                 teamListHome[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-squad home-teamsheet-squad-position">'+
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-squad home-teamsheet-squad-position">'+
                                 teamListHome[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="home-teamsheet-text home-teamsheet-squad home-teamsheet-squad-name">'
+                                '<div class="home-teamsheet-text teamsheet-text home-teamsheet-squad home-teamsheet-squad-name">'
                                 +teamListHome[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
   }
 
 
-    var awayStarters = "<div id='away-teamsheet-header'>"+teamNames[1]+" "
-                        +wordForTeamSheet+"</div>" + '<div id="away-teamsheet-starters-header">'
+    var awayStarters = "<div id='away-teamsheet-header'  class='teamsheet-header'>"+teamNames[1]+" "
+                        +wordForTeamSheet+"</div>" + '<div id="away-teamsheet-starters-header"  class="teamsheet-header">'
                         +wordForAwayStarters+'</div>';
     var awaySubs = "";
-    var awaySquad = '<div id="away-teamsheet-squad-header">'
+    var awaySquad = '<div id="away-teamsheet-squad-header"  class="teamsheet-header">'
     +wordForAwaySquad+'</div>';
 
 
   for(var teamSheetCounter = 0; teamSheetCounter < teamListAway.length; teamSheetCounter++){
     if(teamListAway[teamSheetCounter]["status"] === "starter"){
-        awayStarters = awayStarters + '<div class="away-teamsheet-starter-row">'+
-                                '<div class="away-teamsheet-text away-teamsheet-starter away-teamsheet-starter-number">'+
+        awayStarters = awayStarters + '<div class="away-teamsheet-starter-row teamsheet-row">'+
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-starter away-teamsheet-starter-number">'+
                                 teamListAway[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-starter away-teamsheet-starter-position">'+
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-starter away-teamsheet-starter-position">'+
                                 teamListAway[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-starter away-teamsheet-starter-name">'
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-starter away-teamsheet-starter-name">'
                                 +teamListAway[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
 
     if(teamListAway[teamSheetCounter]["status"] === "sub"){
       if(awaySubs.length < 1){
-        awaySubs = awaySubs + '<div id="away-teamsheet-subs-header">'
+        awaySubs = awaySubs + '<div id="away-teamsheet-subs-header"  class="teamsheet-header">'
         +wordForAwaySubs+'</div>';
       }
-        awaySubs = awaySubs + '<div class="away-teamsheet-sub-row">'+
-                                '<div class="away-teamsheet-text away-teamsheet-sub away-teamsheet-sub-number">'+
+        awaySubs = awaySubs + '<div class="away-teamsheet-sub-row teamsheet-row">'+
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-sub away-teamsheet-sub-number">'+
                                 teamListAway[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-sub away-teamsheet-sub-position">'+
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-sub away-teamsheet-sub-position">'+
                                 teamListAway[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-sub away-teamsheet-sub-name">'
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-sub away-teamsheet-sub-name">'
                                 +teamListAway[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
 
     if(teamListAway[teamSheetCounter]["status"] === "squad"){
-        awaySquad = awaySquad + '<div class="away-teamsheet-squad-row">'+
-                               '<div class="away-teamsheet-text away-teamsheet-squad away-teamsheet-squad-number">'+
+        awaySquad = awaySquad + '<div class="away-teamsheet-squad-row teamsheet-row">'+
+                               '<div class="away-teamsheet-text teamsheet-text away-teamsheet-squad away-teamsheet-squad-number">'+
                                 teamListAway[teamSheetCounter]["number"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-squad away-teamsheet-squad-position">'+
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-squad away-teamsheet-squad-position">'+
                                 teamListAway[teamSheetCounter]["position"]+"</div>"+
-                                '<div class="away-teamsheet-text away-teamsheet-squad away-teamsheet-squad-name">'
+                                '<div class="away-teamsheet-text teamsheet-text away-teamsheet-squad away-teamsheet-squad-name">'
                                 +teamListAway[teamSheetCounter]["name"]+'</div>' +'</div>';
     }
   }
 
-  teamSheets = teamSheets + '<div class="teamsheet-holder">' + homeStarters + homeSubs + homeSquad + '</div>'
-                + '<div class="teamsheet-holder">' + awayStarters + awaySubs + awaySquad + '</div>';
+  teamSheets = '<div id="teamsheet-block">' + teamSheets + '<div id="home-teamsheet-holder" class="teamsheet-holder">' + homeStarters + homeSubs + homeSquad + '</div>'
+                + '<div id="away-teamsheet-holder" class="teamsheet-holder">' + awayStarters + awaySubs + awaySquad + '</div></div>';
 
   $("#match-events").append(teamSheets);
 

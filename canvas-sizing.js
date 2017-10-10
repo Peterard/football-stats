@@ -101,15 +101,23 @@ function resizeMatchReport(){
         $(".icon-holder").css("margin-left","0.6vw");
         $(".icon-holder").css("margin-right","0.6vw");
         $(".icon-holder").css("width","3vw");
+        $(".teamsheet-header").css("font-size","4.2vw");
         $(".event-icon-football").css("height","3vw");
         $(".event-icon-football").css("width","3vw");
         $(".event-icon-red-card").css("height","3vw");
         $(".event-icon-red-card").css("width","2.3vw");
-        $("#events-header").css("font-size","3.7vw");
-        $("#teamsheets").css("font-size","3.7vw");
+        $("#events-header").css("font-size","3.9vw");
+        $("#teamsheets").css("font-size","4.7vw");
         $("#primary-match-details").css("padding-bottom","0.9vw");
         $(".teamsheet-holder").css("display","block");
         $(".teamsheet-holder").css("width","100vw");
+        $(".teamsheet-text").css("font-size","4vw");
+        $(".teamsheet-text").css("margin","0.9vw 0.7vw");
+        $("#home-teamsheet-holder").css("margin-right","0vw");
+        $("#away-teamsheet-holder").css("margin-left","0vw");
+        $("#home-teamsheet-holder").css("margin-top","2vw");
+        $("#away-teamsheet-holder").css("margin-top","2vw");
+        $("#teamsheet-block").css("margin-top","2vw");
   }else if(window.outerWidth > 900){
      $("*").css("font-size", "12px");
      $("#date").css("font-size","15px");
@@ -129,15 +137,23 @@ function resizeMatchReport(){
      $(".icon-holder").css("margin-left","3.5px");
      $(".icon-holder").css("margin-right","3.5px");
      $(".icon-holder").css("width","17.5px");
+     $(".teamsheet-header").css("font-size","22px");
      $(".event-icon-football").css("height","17.5px");
      $(".event-icon-football").css("width","17.5px");
      $(".event-icon-red-card").css("height","18px");
      $(".event-icon-red-card").css("width","13.8px");
-     $("#events-header").css("font-size","20px");
-     $("#teamsheets").css("font-size","20px");
+     $("#events-header").css("font-size","24px");
+     $("#teamsheets").css("font-size","28px");
      $("#primary-match-details").css("padding-bottom","12px");
      $(".teamsheet-holder").css("display","inline-block");
      $(".teamsheet-holder").css("width","400px");
+     $(".teamsheet-text").css("font-size","18px");
+     $(".teamsheet-text").css("margin","3px 7px");
+     $("#home-teamsheet-holder").css("margin-right","50px");
+     $("#away-teamsheet-holder").css("margin-left","50px");
+     $("#home-teamsheet-holder").css("margin-top","20px");
+     $("#away-teamsheet-holder").css("margin-top","20px");
+     $("#teamsheet-block").css("margin-top","20px");
    }else{
      $("*").css("font-size", "1.5vw");
      $("#date").css("font-size","1.8vw");
@@ -157,14 +173,22 @@ function resizeMatchReport(){
      $(".icon-holder").css("margin-left","0.3vw");
      $(".icon-holder").css("margin-right","0.3vw");
      $(".icon-holder").css("width","1.5vw");
+     $(".teamsheet-header").css("font-size","2vw");
      $(".event-icon-football").css("height","1.5vw");
      $(".event-icon-football").css("width","1.5vw");
      $(".event-icon-red-card").css("height","1.5vw");
      $(".event-icon-red-card").css("width","1.15vw");
-     $("#events-header").css("font-size","2.4vw");
-     $("#teamsheets").css("font-size","2.4vw");
+     $("#events-header").css("font-size","2.8vw");
+     $("#teamsheets").css("font-size","2.8vw");
      $("#primary-match-details").css("padding-bottom","1.5vw");
      $(".teamsheet-holder").css("display","inline-block");
      $(".teamsheet-holder").css("width","40vw");
+     $(".teamsheet-text").css("font-size","1.8vw");
+     $(".teamsheet-text").css("margin","0.8vw 0.7vw");
+     $("#home-teamsheet-holder").css("margin-right","4vw");
+     $("#away-teamsheet-holder").css("margin-left","4vw");
+     $("#home-teamsheet-holder").css("margin-top","2vw");
+     $("#away-teamsheet-holder").css("margin-top","2vw");
+     $("#teamsheet-block").css("margin-top","2vw");
    }
 }
